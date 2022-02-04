@@ -34,7 +34,7 @@ function CommentPage({route}) {
       })
       .then(res => {
         console.log(res.data);
-        res.data.comment.map(data => setComments(data));
+        setComments(res.data.comment);
         console.log('comment success');
       })
       .catch(e => {
@@ -58,16 +58,6 @@ function CommentPage({route}) {
       });
   };
 
-  const renderCards = comments.map((data, index) => {
-    return (
-      <View key={index} style={styles.comment}>
-        <Text style={styles.writer}>{data.user_id}</Text>
-        <Text>{data.text}</Text>
-        <Text style={styles.date}>{data.date}</Text>
-      </View>
-    );
-  });
-
   const onFocus = () => {
     setInputMargin('0%');
   };
@@ -89,18 +79,20 @@ function CommentPage({route}) {
           </View>
           <View style={styles.writerContainer}>
             {/* <Text style={styles.writer}>{writer}</Text> */}
-            <Text style={styles.writer}>Dali</Text>
+            <Text style={styles.writer}>{writer}</Text>
             <Text>{content}</Text>
           </View>
         </View>
         <View style={styles.commentContainer}>
-          {comments &&
+          {comments !== undefined &&
             comments.map((data, index) => {
               return (
                 <View key={index} style={styles.comment}>
-                  <Text style={styles.writer}>{data.user_id}</Text>
+                  <Text style={styles.writer}>{data.writer}</Text>
                   <Text>{data.text}</Text>
-                  <Text style={styles.date}>{data.date}</Text>
+                  <Text style={styles.date}>
+                    {data.date.replace(/-/gi, '.')}
+                  </Text>
                 </View>
               );
             })}
@@ -178,7 +170,7 @@ const styles = StyleSheet.create({
   },
   date: {
     color: '#262444',
-    marginLeft: width * 0.81,
+    marginLeft: width * 0.7,
     fontFamily: 'TmoneyRoundWindRegular',
     fontSize: width * 0.03,
   },
