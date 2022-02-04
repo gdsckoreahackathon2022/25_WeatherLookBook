@@ -19,9 +19,24 @@ def comment(request, bid):
         comment.board = Board.objects.get(bid = bid)
         comment.text = request.POST.get('text')
         comment.save()
-        return JsonResponse({"msg":"commentcreate success"})
-    
+        context = {'msg':'commentcreate success', 'writer': comment.user.username}
+        return JsonResponse(context)
+   
     if request.method == 'GET':
-        comment = Comment.objects.filter(board_id = bid)
-        print(list(comment.values()))
-        return JsonResponse({"comment":list(comment.values())})
+        comments = Comment.objects.filter(board_id = bid)
+        #print(list(comments.values()))
+        comment_list = []
+
+        for comment in comments:
+            user = User.objects.get(uid = comment.user_id)
+            
+            comment = {'board_id':comment.board_id,
+            'date':comment.date,
+            'id':comment.id,
+            'text':comment.text,
+            'writer': user.username}
+    
+            comment_list.append(comment)
+
+        #print(comment_list)
+        return JsonResponse({"comment":comment_list})
