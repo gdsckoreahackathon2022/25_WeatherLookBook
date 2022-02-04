@@ -1,5 +1,5 @@
 from django.http.response import JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -75,11 +75,11 @@ def myboard(request):
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def mylike(request):
-    print(request.user.uid)
-    board = Board.objects.filter(user_id = request.user.uid)
-    print(board)
+    
     l = []
-    for b in board:
+    u = User.objects.get(uid = request.user.uid)
+    #print(u.likes.all())
+    for b in u.likes.all():
         print(b.bid)
         print(b.image)
         
@@ -92,6 +92,7 @@ def mylike(request):
     print(l)
     
     return JsonResponse(l, safe=False)
+    
 
 @api_view(['POST'])
 @csrf_exempt
