@@ -10,14 +10,11 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
 import Header from './Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import Spring from '../images/spring.jpg';
-import Summer from '../images/summer.jpg';
-import Fall from '../images/fall.jpg';
-import Winter from '../images/winter.jpg';
+import W from '../images/woman1.png';
+import M from '../images/man1.png';
 import {LOCAL} from '../../ipConfig';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
@@ -25,7 +22,7 @@ function GuidePage() {
   const [temperature, setTemperature] = useState({avg: 0, min: 0, max: 0});
   const [date, setDate] = useState({date: '', month: '', day: ''});
   const [checkedDate, setCheckedDate] = useState(0);
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
 
   const getTime = () => {
     let getDay = new Date();
@@ -61,17 +58,12 @@ function GuidePage() {
     setDate(newDate);
   };
 
-  const selectChImage = () => {
-    // if (temperature.avg <= 6) {
-    //     return Winter
-    // } else if (temperature.avg <= 15) {
-    //     return Fall
-    // } else if (temperature.avg <= 22) {
-    //     return Spring
-    // } else {
-    //     return Summer
-    // }
-    return Fall;
+  const selectWomanImage = () => {
+    return W;
+  };
+
+  const selectManImage = () => {
+    return M;
   };
 
   const showDate = () => {
@@ -171,17 +163,18 @@ function GuidePage() {
               <View style={styles.line} />
               <View style={styles.textBox}>
                 <Text style={styles.popupText}>
-                  일교차가 크고 쌀쌀해요 후드티나 자켓, 가디건과 같은 도톰
-                  따뜻한 옷을 입어요 환절기 감기 조심하세요
+                  손이 꽁꽁꽁 발이 꽁꽁꽁{'\n'}겨울코트, 롱패딩 발열내의와{'\n'}
+                  같은 두툼 따뜻한 옷을 입어요
                 </Text>
               </View>
             </View>
           ) : (
-            <View style={styles.charaterContainer}>
-              <TouchableOpacity onPress={() => setPopup(true)}>
-                <Image style={styles.chImage} source={selectChImage()} />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => setPopup(true)}>
+              <View style={styles.charaterContainer}>
+                <Image style={styles.chImage} source={selectWomanImage()} />
+                <Image style={styles.chImage} source={selectManImage()} />
+              </View>
+            </TouchableOpacity>
           )}
         </ScrollView>
       </View>
@@ -204,6 +197,7 @@ const styles = StyleSheet.create({
   },
   popupText: {
     color: '#262444',
+    textAlign: 'center',
     fontFamily: 'TmoneyRoundWindExtraBold',
     fontSize: width * 0.04,
     lineHeight: width * 0.06,
@@ -293,7 +287,7 @@ const styles = StyleSheet.create({
   tempText: {
     color: '#ffb687',
     fontFamily: 'TmoneyRoundWindExtraBold',
-    fontSize: width * 0.1,
+    fontSize: width * 0.08,
   },
   bar: {
     width: '100%',
@@ -324,8 +318,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   chImage: {
-    width: width * 0.75,
-    height: width * 0.41,
+    width: width * 0.35,
+    height: width * 0.51,
   },
 });
 

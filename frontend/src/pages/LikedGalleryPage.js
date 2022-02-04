@@ -23,7 +23,7 @@ function LikedGalleryPage({route, navigation}) {
   const getContents = async () => {
     const token = await AsyncStorage.getItem('token');
     axios
-      .get(`${LOCAL}/boardapp/board/`, {
+      .get(`${LOCAL}/accountapp/mylike/`, {
         headers: {Authorization: 'Token ' + token},
       })
       .then(res => {
@@ -35,10 +35,33 @@ function LikedGalleryPage({route, navigation}) {
       });
   };
 
+  const getOnePost = async id => {
+    const token = await AsyncStorage.getItem('token');
+    axios
+      .get(`${LOCAL}/boardapp/board/${id}`, {
+        headers: {Authorization: 'Token ' + token},
+      })
+      .then(res => {
+        console.log('one data: ', res.data);
+        navigation.navigate('DetailedSocialPage', {
+          postData: res.data,
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
   const renderCards = contents.map((data, index) => {
     return (
-      <TouchableOpacity key={index}>
-        <Image style={styles.cardImage} source={{uri: data.image}} />
+      <TouchableOpacity
+        onPress={() => getOnePost(data.bid)}
+        key={index}
+        key={index}>
+        <Image
+          style={styles.cardImage}
+          source={{uri: `${LOCAL}/media/` + data.image}}
+        />
       </TouchableOpacity>
     );
   });
@@ -60,7 +83,7 @@ function LikedGalleryPage({route, navigation}) {
           </View>
           <View style={styles.nameContainer}>
             {/* <Text style={styles.nameText}>{name}</Text> */}
-            <Text style={styles.nameText}>Dali</Text>
+            <Text style={styles.nameText}>{name}</Text>
             <Text style={styles.nameText}>{email}</Text>
           </View>
         </View>

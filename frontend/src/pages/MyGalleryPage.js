@@ -27,6 +27,7 @@ function MyGalleryPage({route, navigation}) {
         headers: {Authorization: 'Token ' + token},
       })
       .then(res => {
+        console.log(res.data);
         setContents(res.data.reverse());
       })
       .catch(e => {
@@ -79,7 +80,7 @@ function MyGalleryPage({route, navigation}) {
           </View>
           <View style={styles.nameContainer}>
             {/* <Text style={styles.nameText}>{name}</Text> */}
-            <Text style={styles.nameText}>Dali</Text>
+            <Text style={styles.nameText}>{name}</Text>
             <Text style={styles.nameText}>{email}</Text>
           </View>
         </View>

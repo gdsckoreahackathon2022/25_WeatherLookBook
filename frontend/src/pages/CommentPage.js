@@ -16,6 +16,7 @@ import {LOCAL} from '../../ipConfig';
 
 function CommentPage({route}) {
   const [text, setCommentInput] = useState('');
+  const [update, setUpdate] = useState(null);
   const [inputMargin, setInputMargin] = useState('8%');
   let {writer, content, bid} = route.params;
   // let comments = [
@@ -51,6 +52,8 @@ function CommentPage({route}) {
         headers: {Authorization: 'Token ' + token},
       })
       .then(res => {
+        setCommentInput('');
+        setUpdate(res.data);
         console.log('comment success');
       })
       .catch(e => {
@@ -68,7 +71,7 @@ function CommentPage({route}) {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [update]);
 
   return (
     <SafeAreaView style={styles.container}>
