@@ -11,7 +11,7 @@
 
 
 <img align="left" src="https://user-images.githubusercontent.com/49220095/152622778-c1a982a1-d49d-431a-8db5-4cec3afce71e.png"  width="20%" height="20%"/>
-The 17 Sustainable Development Goals of the United Nations 중 
+The 17 Sustainable Development Goals 중 
 Climate Action을 지향합니다.  
 
 <br>코로나로 인해 오랜만에 외출할 때, 갑자기 일교차가 커진다는 날씨 예보를 보았을 때, 도대체 작년에 내가 무엇을 입었는지 모르겠을 때,
@@ -44,4 +44,5 @@ Climate Action을 지향합니다.
 
 ## 다운로드(apk)
 [APK 파일 다운받기](https://drive.google.com/file/d/1Fp6Doz6v4XZVl062xXyaQVBAvTG30kWz/view?usp=sharing)
+
 [발표자료 다운받기](https://docs.google.com/presentation/d/1G5kOnszOYHR6CSzzwfEnTA1-EUbKVokk/edit?usp=sharing&ouid=113280659249155693688&rtpof=true&sd=true)
