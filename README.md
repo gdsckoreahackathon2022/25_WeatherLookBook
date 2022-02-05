@@ -11,7 +11,8 @@
 
 
 <img align="left" src="https://user-images.githubusercontent.com/49220095/152622778-c1a982a1-d49d-431a-8db5-4cec3afce71e.png"  width="20%" height="20%"/>
-The 17 Sustainable Development Goals of the United Nations 중 Climate Action을 지향합니다.  
+The 17 Sustainable Development Goals of the United Nations 중 
+**Climate Action**을 지향합니다.  
 
 <br>코로나로 인해 오랜만에 외출할 때, 갑자기 일교차가 커진다는 날씨 예보를 보았을 때, 도대체 작년에 내가 무엇을 입었는지 모르겠을 때,
 <br>매년 폭염, 한파 등 시시각각 달라지는 날씨에 적응하기 어려웠던 경험을 바탕으로 기후 변화에 대응하여 사용자에게 도움이 되는 어플을 제작하고자 했습니다.        
