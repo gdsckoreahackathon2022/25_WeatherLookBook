@@ -44,3 +44,4 @@ __Climate Action__을 지향합니다.
 
 ## 다운로드(apk)
 [APK 파일 다운받기](https://drive.google.com/file/d/1Fp6Doz6v4XZVl062xXyaQVBAvTG30kWz/view?usp=sharing)
+[발표자료 다운받기](https://docs.google.com/presentation/d/1G5kOnszOYHR6CSzzwfEnTA1-EUbKVokk/edit?usp=sharing&ouid=113280659249155693688&rtpof=true&sd=true)
