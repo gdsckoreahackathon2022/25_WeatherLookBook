@@ -21,15 +21,14 @@ function SignIn() {
 
   const handleSnsSignIn = type => {
     if (type === 'google') {
-      // AuthenticationService.handleGoogleSignIn().then(res => {
-      //   if (res.error) {
-      //     Alert.alert('정보를 가져오는 데 실패했습니다.');
-      //     return;
-      //   }
-      //   console.log('확인::: ', res.email, res.name);
-      //   dispatch(signIn(res.email, res.name));
-      // });
-      dispatch(signIn('hjfin@sookmyung.ac.kr', '전혜주'));
+      AuthenticationService.handleGoogleSignIn().then(res => {
+        if (res.error) {
+          Alert.alert('정보를 가져오는 데 실패했습니다.');
+          return;
+        }
+        console.log('확인::: ', res.email, res.name);
+        dispatch(signIn(res.email, res.name));
+      });
     }
   };
 

@@ -58,9 +58,7 @@ function DetailedSocialPage({navigation, route}) {
           </View>
         </View>
         <View style={styles.commentContainer}>
-          <Text style={styles.likeText}>
-            {like_count} people like this post!
-          </Text>
+          <Text style={styles.likeText}>{like_count} LIKED!</Text>
         </View>
         <View style={styles.commentContainer}>
           {comments !== undefined &&

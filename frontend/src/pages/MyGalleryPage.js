@@ -86,12 +86,12 @@ function MyGalleryPage({route, navigation}) {
         </View>
         <View style={styles.photoContainer}>
           {renderCards}
+          {/* {renderCards}
           {renderCards}
           {renderCards}
           {renderCards}
           {renderCards}
-          {renderCards}
-          {renderCards}
+          {renderCards} */}
         </View>
       </ScrollView>
     </SafeAreaView>
